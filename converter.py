@@ -93,7 +93,7 @@ while MainScreen == 0:
         for i in range(1,len(Cdeger)):
             toplam = toDeger + çıktı[i]
             toDeger = toplam
-        print("Sonuç: " + toDeger)
+        print("Output: " + toDeger)
         dosya.write(toDeger + "\n")
         a = input("'x' to exit:\n'a' to continue\n")
         if a == "x":
