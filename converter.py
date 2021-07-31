@@ -2,10 +2,10 @@ dosya = open("bilgiler.txt","w",encoding="utf-8")
 values = []
 çıktı = []
 def Lister(Cdeger):
-    for i in range(0,lenDeger):
+    for i in range(0,len(Cdeger)):
         values.append(Cdeger[i])
-def cevirici():
-    for i in range(0,lenDeger):
+def cevirici(Cdeger):
+    for i in range(0,len(Cdeger)):
         if(values[i] == 'a'):
             çıktı.append("97")
         elif(values[i] == "b"):
@@ -79,27 +79,26 @@ def cevirici():
         elif(values[i] == "9"):
             çıktı.append("57")
         else:
-            print("Lütfen geçerli bir değer seçiniz")
+            print("Please select a valid value")
             i -= 1
 MainScreen = 0
 while MainScreen == 0: 
-    print("------------------------\nASCII Dec-Char converter\n------------------------\nSonuçlar bilgiler.txt ye kaydedilecek\n------------------------")
-    secim = input("1.Char - Dec :\nSeçim : ")
+    print("------------------------\nASCII Dec-Char converter\n------------------------\nResults will be saved to bilgiler.txt\n------------------------")
+    secim = input("1.Char - Dec :\nselection : ")
     if(secim == "1"):
-        Cdeger = input("Çevirilecek değer:")
-        lenDeger = len(Cdeger)
+        Cdeger = input("Value to be converted:")
         Lister(Cdeger)
-        cevirici()
+        cevirici(Cdeger)
         toDeger = çıktı[0]
-        for i in range(1,lenDeger):
+        for i in range(1,len(Cdeger)):
             toplam = toDeger + çıktı[i]
             toDeger = toplam
         print("Sonuç: " + toDeger)
         dosya.write(toDeger + "\n")
-        a = input("Çıkmak için x\nDevam etmek için a\n")
+        a = input("'x' to exit:\n'a' to continue\n")
         if a == "x":
             MainScreen = 1
     else:
-        print("Lütfen bir seçenek seçiniz")
+        print("Please select an option")
         input("")
 dosya.close()
